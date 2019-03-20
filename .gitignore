@@ -1,0 +1,9 @@
+.idea
+.gradle
+classes
+out
+*.jar
+*.class
+build
+test.lck
+test.properties

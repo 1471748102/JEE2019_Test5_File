@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+apply from: 'gretty.plugin'
+group 'cn.simple'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    flatDir(dirs:"/src/main/webapp/WEB-INF/lib")
+    jcenter()
+}
+
+gretty{
+    //没有这个，好像默认用的jetty，有异常
+    servletContainer = 'tomcat8'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.struts', name: 'struts2-core', version: '2.5.5'
+
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.4.1'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-web', version: '2.11.1'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.1.1.RELEASE'
+
+
+}
