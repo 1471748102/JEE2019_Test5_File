@@ -5,5 +5,9 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-
+    <package name="file" extends="struts-default">
+        <action name="upload" class="FileUpload">
+            <result>/upload_suc.jsp</result>
+        </action>
+    </package>
 </struts>
