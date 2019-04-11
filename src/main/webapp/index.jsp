@@ -14,5 +14,7 @@
 <br>
 <a href="upload.jsp">单文件上传</a>
 <br>
+<a href="upload_files.jsp">多文件上传</a>
+<br>
 </body>
 </html>

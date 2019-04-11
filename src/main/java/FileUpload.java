@@ -49,7 +49,9 @@ public class FileUpload extends ActionSupport {
         // if(!file.exists())  file.mkdirs();
         try
         {
-            FileUtils.copyFile(upload,new File(file,uploadFileName));
+            //修改上传建立文件夹的错误
+            //FileUtils.copyFile(upload,new File(file,uploadFileName));
+            FileUtils.copyFile(upload,file);
         }catch (IOException e)
         {
             e.printStackTrace();

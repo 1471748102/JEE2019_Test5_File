@@ -10,4 +10,11 @@
             <result>/upload_suc.jsp</result>
         </action>
     </package>
+
+    <package name="files" extends="struts-default">
+        <action name="uploadfiles" class="FilesUpload">
+            <result>/upload_suc.jsp</result>
+        </action>
+    </package>
+
 </struts>
