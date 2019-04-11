@@ -40,9 +40,13 @@ public class FileUpload extends ActionSupport {
     }
 
     public String execute() {
-        String realPath = ServletActionContext.getServletContext().getRealPath("upload");
-        System.out.println("realPath:" + realPath);
-        File file = new File(realPath,uploadFileName);
+        System.out.println("contentType:" + this.getUploadContentType());
+        System.out.println("File:" + this.getUpload());
+        System.out.println("filename:" + this.getUploadFileName());
+       // String realPath = ServletActionContext.getServletContext().getRealPath("upload");
+      //  System.out.println("realPath:" + realPath);
+        File file = new File("F:\\file",uploadFileName);
+        // if(!file.exists())  file.mkdirs();
         try
         {
             FileUtils.copyFile(upload,new File(file,uploadFileName));
