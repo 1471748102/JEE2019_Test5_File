@@ -37,11 +37,10 @@ public class FilesUpload extends ActionSupport {
     }
 
     public String execute() {
-        //String realPath = ServletActionContext.getServletContext().getRealPath("/upload");
+        String realPath = ServletActionContext.getServletContext().getRealPath("/upload");
         for (int i = 0; i < upload.size(); i++) {
             try {
-                //保存于本机的F:\\file的文件夹下
-                File file = new File("F:\\file", uploadFileName.get(i));
+                File file = new File(realPath, uploadFileName.get(i));
                 FileUtils.copyFile(upload.get(i), file);
             } catch (IOException e) {
                 e.printStackTrace();
