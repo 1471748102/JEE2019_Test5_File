@@ -3,37 +3,53 @@ import org.apache.struts2.ServletActionContext;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 
 public class downloadFile extends ActionSupport{
+    private String temp;
     private String fileName;
     private  InputStream download;
+
+
 
     public String getFileName() {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public String getTemp() {
+        return temp;
     }
 
     public void setDownload(InputStream download) {
         this.download = download;
     }
 
-
-
-
-    public InputStream getDownload() {
-        //查看路径
-        String FilePath = ServletActionContext.getServletContext().getRealPath("/upload/"+fileName);
-        //输出信息查找问题
-        System.out.println("FilePath "+FilePath);
-        System.out.println("fileName "+fileName);
-        download=ServletActionContext.getServletContext().getResourceAsStream("upload/"+fileName);
-        return download;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public String execute(){
+    public void setTemp(String temp) {
+        this.temp = temp;
+    }
+
+    public InputStream getDownload() throws FileNotFoundException {
+
+        String FilePath = ServletActionContext.getServletContext().getRealPath("/upload/"+temp);
+
+
+        System.out.println("FilePath "+FilePath);
+        System.out.println("fileName "+temp);
+
+        download=ServletActionContext.getServletContext().getResourceAsStream("upload/"+temp);
+        System.out.println(download);
+        return download;
+
+    }
+
+    public String execute() throws UnsupportedEncodingException {
+
+        //解决中文不能显示
+        fileName=new String (temp.getBytes("UTF-8"),"ISO_8859_1");
 
         return  SUCCESS;
     }

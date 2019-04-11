@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="down?fileName=exp3.txt">下载exp3.txt</a>
+<a href="down?temp=exp3.txt">exp3.txt</a>
+<a href="down?temp=中文.txt">中文.txt</a>
 </body>
 </html>
